@@ -12,7 +12,7 @@ const Burger = props =>{
     let content = [];
     items.forEach(el  => {
         for (let i=0 ; i< el[1]; i++)          // ${j+1} ${el[0]}
-        return content.push(<BurgerIngredient  key = {`${el[0]}${i+1}`}type = {el[0]} 
+         content.push(<BurgerIngredient  key = {`${el[0]}${i+1}`}type = {el[0]} 
         /> );
     });
 

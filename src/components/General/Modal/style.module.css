@@ -8,6 +8,7 @@
     padding: 16px;
     left: 15%;
     top: 30%;
+    transition: all 0.3s ease-out;
 
 }
 
@@ -16,6 +17,6 @@
         width: 500px;
         left: calc(50% - 250px);
         margin-top: 2%;
-
+        transition: all 0.3 ease-out;
     }
 }

@@ -26,10 +26,22 @@ class BurgerBuilder extends Component{
             // meat: 1,
         },
         totalPrice : 3000,
-        purchasing: false
+        purchasing: false,
+        confirmOrder:false,
         
     };
 
+    continueOrder = () =>{
+        console.log("continue daragdlaa")
+    }
+
+    showConfirmModal = () =>{
+        this.setState({confirmOrder: true});
+    }
+    
+   closeConfirmModal = () =>{
+        this.setState({confirmOrder: false});
+    }
     ortsNemeh = (type) => {
         // console.log("=====>" + type);
         const newIngredients = {...this.state.ingredients};
@@ -37,6 +49,7 @@ class BurgerBuilder extends Component{
         const newPrice = this.state.totalPrice + INGREDIENT_PRICES[type];
         
         this.setState({purchasing:true ,totalPrice: newPrice ,ingredients: newIngredients});
+        console.log(this.ortsNemeh)
     };
     
     ortsHasah = (type) =>{
@@ -59,17 +72,22 @@ class BurgerBuilder extends Component{
         }
         return(
             <div>
-                <Modal>
+                <Modal closeConfirmModal={this.closeConfirmModal} show={this.state.confirmOrder}>
                      <h1>Та итгэлтэй байна уу...</h1>
+
                      <OrderSummery 
+                     onCancel={this.closeConfirmModal}
+                     onContinue={this.continueOrder}
+                     price={this.state.totalPrice}
                      ingredientsNames={INGREDIENT_NAMES} 
                      ingredients={this.state.ingredients}/>
+
                 </Modal>
                 <Burger orts={this.state.ingredients} />
                 <BuildControls
+                showConfirmModal={this.showConfirmModal}
                 ingredientsNames={INGREDIENT_NAMES} 
                 disabled ={!this.state.purchasing}
-                
                 price = {this.state.totalPrice}
                 disabledIngredients={disabledIngredients} 
                 ortsHasah={this.ortsHasah} 
