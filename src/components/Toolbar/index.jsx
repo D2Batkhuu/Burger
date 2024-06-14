@@ -1,12 +1,14 @@
 import React from "react"
 import css from "./style.module.css"
 import Logo from "../Logo"
+import Menu from "../Menu"
+import HamburgerMenu from "../HamburgerMenu";
 
 const Toolbar =() => (
 <header className={css.Toolbar}>
-    <div>...</div>
+    <div><HamburgerMenu/></div>
     <Logo/>
-    <nav>цэс</nav>
+    <nav className={css.HideOnMobile}><Menu/></nav>
 </header>
 );
 
