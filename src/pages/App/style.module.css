@@ -1,3 +1,6 @@
 .Content{
   margin-top: 72px;
 }
+.HideOnDesktop{
+  display: none;
+}

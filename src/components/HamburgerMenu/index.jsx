@@ -2,14 +2,15 @@ import React from "react";
 import css from "./style.module.css"
 
 
-const HamburgerMenu = () =>{
+const HamburgerMenu = (props) =>(
     <div
-    className={css.HamburgerMenu}>
-
+    onClick={props.toggleSideBar}
+    className={`${css.HamburgerMenu} ${css.HideOnDesktop}`}
+>
     <div></div>
     <div></div>
     <div></div>
     </div>
-}
+)
 
 export default HamburgerMenu;

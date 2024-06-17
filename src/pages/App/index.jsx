@@ -10,16 +10,21 @@ class App extends Component {
   };
 
   toggleSideBar = () => {
-    this.setState(prevState => ({
-      showSidebar: !prevState.showSidebar
-    }));
+    this.setState(prevState => {
+      return{
+      showSidebar: !prevState.showSidebar };
+    });
   };
 
   render() {
     return (
       <div>
-        <Toolbar toggleSideBar={this.toggleSideBar}/>  
-        <SideBar toggleSideBar={this.state.toggleSideBar}/>
+        <Toolbar toggleSideBar={this.toggleSideBar}
+      
+        />  
+        <SideBar showSidebar={this.state.showSidebar}
+        toggleSideBar={this.toggleSideBar}
+        />
         <main className={css.Content}><BurgerPage/></main>
       </div>
     );

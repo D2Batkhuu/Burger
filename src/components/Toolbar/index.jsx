@@ -4,9 +4,9 @@ import Logo from "../Logo"
 import Menu from "../Menu"
 import HamburgerMenu from "../HamburgerMenu";
 
-const Toolbar =() => (
+const Toolbar =(props) => (
 <header className={css.Toolbar}>
-    <div><HamburgerMenu/></div>
+    <HamburgerMenu className={css.HideOnDesktop} toggleSideBar={props.toggleSideBar}/>
     <Logo/>
     <nav className={css.HideOnMobile}><Menu/></nav>
 </header>
